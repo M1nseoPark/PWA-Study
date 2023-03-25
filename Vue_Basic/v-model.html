@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 뷰를 사용하는 손쉬운 방법은 CDN에 연결하는 것 (Vue 업데이트로 인해 버전 명시 필요) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+
+<body>
+    <div id="main">
+        <!-- input에 데이터를 입력하면 sMsg 변수값과 연동되어 p 엘리먼트의 값도 바뀜  -->
+        <p>{{ sMsg }}</p>
+        <input v-model:value="sMsg">
+    </div>
+    <script>
+        // 뷰를 처음 시작하려면 뷰 객체를 생성해야 함 
+        var main = new Vue({
+            // id 선택자인 'main'의 div 엘리먼트와 앱을 연결해서 구동 
+            el: '#main',
+            data: {   // 뷰 안에서 사용할 데이터를 변수명으로 선언해서 관리함 
+                sMsg: '안녕하세요!'
+            }
+        });
+    </script>
+</body>
+</html>
