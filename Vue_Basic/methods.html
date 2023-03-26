@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 뷰를 사용하는 손쉬운 방법은 CDN에 연결하는 것 (Vue 업데이트로 인해 버전 명시 필요) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+
+<body>
+    <div id="main">
+        <p>클릭 숫자: {{ nClicks }}</p>
+        <p>카운트다운: {{ fnCounter }}</p>
+        <button v-on:click="fnIncrement">눌러 주세요!</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#main',
+            data: {   
+                nClicks: 0
+            },
+            // computed는 머스태시 안에 넣을 자바스크립트 로직이 복잡할 때 사용 
+            computed: {
+                fnCounter() {
+                    return 10 - this.nClicks;
+                }
+            },
+            methods: {
+                fnIncrement() {
+                    this.nClicks++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

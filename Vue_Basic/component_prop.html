@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 뷰를 사용하는 손쉬운 방법은 CDN에 연결하는 것 (Vue 업데이트로 인해 버전 명시 필요) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script>
+        Vue.component('favorite-fruits', {
+            // props에 엘리먼트에 사용될 속성 이름 선언 
+            props: ['fruit'],
+            template: '<li>{{ fruit.text }}</li>'
+        })
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>좋아하는 과일!</h1>
+        <ol>
+            <!-- aFruits 배열의 값을 반복문으로 가져와 fruit 속성에 바인딩하여 컴포넌트에 전달  -->
+            <favorite-fruits
+                v-for="item in aFruits"
+                v-bind:fruit="item"
+                v-bind:key="item.id">
+            </favorite-fruits>
+        </ol>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                aFruits: [
+                    { id: 0, text: '사과' },
+                    { id: 1, text: '오렌지' },
+                    { id: 2, text: '수박' },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

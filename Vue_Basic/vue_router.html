@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 뷰를 사용하는 손쉬운 방법은 CDN에 연결하는 것 (Vue 업데이트로 인해 버전 명시 필요) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>안녕하세요!</h1>
+        <router-view></router-view>
+        <hr>
+        <p>라우터 사용:
+            <router-link to="/main">메인 페이지 이동</router-link>
+            <router-link to="/sub">서브페이지 이동</router-link>
+        </p>
+    </div>
+    <script>
+        // 라우터에 등록할 컴포넌트 정의 
+        const tmMain = {
+            template: '<h2>메인 페이지입니다.</h2>'
+        }
+        const tmSub = {
+            template: '<h2>서브페이지입니다.</h2>'
+        }
+        // 이동할 주소명과 사용할 컴포넌트를 등록하여 라우터 정의 
+        const rtRoutes = [{
+            path: '/main',
+            component: tmMain
+        },
+        {
+            path: '/sub',
+            component: tmSub
+        }
+        ]
+        // 라우터 인스턴스를 생성하고 routes 옵션 전달
+        const router = new VueRouter({
+            routes: rtRoutes
+        })
+        // 뷰 루트 인스턴스를 만들고 router 옵션 추가
+        var app = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+</html>
