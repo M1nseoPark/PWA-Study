@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- 모바일 기기의 접속 시 화면 크기 조절을 위해 뷰포트 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- vuetify.js에 필요한 스타일 파일 링크 연결 -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <!-- 앱바 색상을 파란색(primary)로 설정하고, dark로 글자의 명도를 조절해 가독성 높임, fixed로 위치 고정(스크롤에 영향 받지 않음)  -->
+            <v-app-bar app color="primary" dark fixed>
+                <!-- 왼쪽에 메뉴 아이콘 넣음, toolbar-title에 메뉴 제목 넣음 -->
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>마스터 페이지</v-toolbar-title>
+
+                <!-- 앱바의 메뉴 아이콘과 텍스트를 오른쪽 정렬로 넣음  -->
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                    <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+            </v-app-bar>
+
+            <v-content>
+                <v-container>
+                    <h1 class="display-1 my-5">안녕하세요</h1>
+                    <p class="body-2 my-4">마스터 페이지입니다</p>
+                    <v-divider></v-divider>
+                    <h1 class="display-3 my-4">안녕하세요</h1>
+                    <p class="body-1 my-4">마스터 페이지입니다</p>
+                </v-container>
+            </v-content>
+
+            <v-footer color="secondary" dark fixed>
+                <div class="mx-auto">Copyright &copy;</div>
+            </v-footer>
+        </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+        el: '#app',
+        vuetify: new Vuetify()
+        })
+    </script>
+</body>
+</html>
+

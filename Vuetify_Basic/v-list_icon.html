@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- 모바일 기기의 접속 시 화면 크기 조절을 위해 뷰포트 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- vuetify.js에 필요한 스타일 파일 링크 연결 -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-app-bar app color="blue" dark>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>Virtual Company</v-toolbar-title>
+            </v-app-bar>
+
+            <v-content>
+                <v-container>
+                    <v-card>
+                        <v-list two-line v-for="item in aList" v-bind:key="item.id">
+                            <v-list-item @click="">
+                                <v-list-item-avatar>
+                                    <v-icon :class="[item.icon_style]">{{ item.icon_name }}</v-icon:class>
+                                </v-list-item-avatar>
+                                
+                                <v-list-item-content>
+                                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                                </v-list-item-content>
+
+                                <v-list-item-action>
+                                    <v-btn icon>
+                                        <v-icon color="grey">keyboard_arrow_right</v-icon>
+                                    </v-btn>
+                                </v-list-item-action>
+                            </v-list-item>
+                        </v-list>
+                    </v-card>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+        new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data() {
+            return {
+                aList: [{
+                    icon_name: 'account_balance',
+                    icon_style: 'red white--text',
+                    title: '회사 소개',
+                },
+                {
+                    icon_name: 'photo',
+                    icon_style: 'green white--text',
+                    title: '제품 이미지',
+                },
+                {
+                    divider: false,
+                    icon_name: 'movie',
+                    icon_style: 'yellow white--text',
+                    title: '홍보 동영상',
+                },
+            ]
+            }
+        }
+        })
+    </script>
+</body>
+</html>
